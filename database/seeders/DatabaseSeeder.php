@@ -20,11 +20,11 @@ class DatabaseSeeder extends Seeder
         );
 
         $settings = [
-            'name' => 'Lanchonete do Shopping',
+            'name' => 'Cantinho da Ma',
             'about' => 'A melhor lanchonete do shopping! Lanches artesanais, bebidas geladas e sobremesas irresistíveis, prontos rapidinho para você aproveitar sem enfrentar filas.',
-            'phone' => '(11) 4002-8922',
-            'address' => 'Praça de Alimentação, Piso L2 - Shopping Central',
-            'hours' => 'Segunda a Domingo, das 10h às 22h',
+            'phone' => '(11) 96217-9073',
+            'address' => 'Corredor Amarelo G - 113',
+            'hours' => 'Segunda a Sábado, das 4h às 15h',
             'service_fee_percent' => '0',
             'payment_methods' => 'pix,credit,debit',
         ];

@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
             }
 
             $view->with('storeSettings', [
-                'name' => Setting::get('name', 'Lanchonete do Shopping'),
+                'name' => Setting::get('name', 'Cantinho da Mah'),
                 'logo' => Setting::get('logo'),
                 'phone' => Setting::get('phone'),
                 'address' => Setting::get('address'),
