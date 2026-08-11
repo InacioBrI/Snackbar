@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\DailyMenuService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -45,6 +46,13 @@ class Product extends Model
         return $this->belongsToMany(Addon::class);
     }
 
+    public function dailyMenus(): BelongsToMany
+    {
+        return $this->belongsToMany(DailyMenu::class)
+            ->withPivot(['is_sold_out', 'sort_order'])
+            ->withTimestamps();
+    }
+
     public function scopeActive($query)
     {
         return $query->where('is_active', true);
@@ -65,6 +73,6 @@ class Product extends Model
             return false;
         }
 
-        return true;
+        return app(DailyMenuService::class)->isAvailableToday($this);
     }
 }

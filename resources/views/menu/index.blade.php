@@ -6,7 +6,7 @@
     <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <h1 class="text-2xl font-bold text-stone-900">Cardápio</h1>
         <form action="{{ route('menu.index') }}" method="GET" class="flex gap-2">
-            <input type="search" name="q" value="{{ $search }}" placeholder="Buscar produto..."
+            <input type="search" name="q" value="{{ $search }}" placeholder="Buscar prato..."
                    class="w-full rounded-full border border-stone-300 px-4 py-2 text-sm focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 md:w-72">
             <button class="rounded-full bg-amber-500 px-5 py-2 text-sm font-semibold text-white hover:bg-amber-600">Buscar</button>
         </form>
@@ -17,9 +17,27 @@
             — <a href="{{ route('menu.index') }}" class="text-amber-600 hover:underline">limpar busca</a></p>
     @endif
 
-    @if($categories->isEmpty())
+    @if($todayMenu)
+        <section class="mt-8">
+            <div class="rounded-2xl bg-amber-50 p-5">
+                <h2 class="text-xl font-bold text-amber-800">{{ $todayMenu->title ?: 'Almoço de hoje' }}</h2>
+                <p class="text-sm text-amber-700">{{ $todayMenu->menu_date->format('d/m/Y') }}@if($todayMenu->notes) — {{ $todayMenu->notes }}@endif</p>
+            </div>
+            @if($todayProducts->isEmpty())
+                <div class="mt-4 rounded-2xl border border-dashed border-stone-300 bg-white p-10 text-center text-stone-500">
+                    Nenhum prato encontrado no cardápio de hoje.
+                </div>
+            @else
+                <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    @foreach($todayProducts as $product)
+                        @include('partials.product-card', ['product' => $product])
+                    @endforeach
+                </div>
+            @endif
+        </section>
+    @elseif($categories->isEmpty())
         <div class="mt-10 rounded-2xl border border-dashed border-stone-300 bg-white p-10 text-center text-stone-500">
-            Nenhum produto encontrado.
+            Nenhum prato encontrado.
         </div>
     @else
         <div class="mt-4 flex flex-wrap gap-2">

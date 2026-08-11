@@ -38,7 +38,7 @@
 
             @if(! $product->isAvailable())
                 <div class="mt-6 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-                    Este produto está indisponível no momento.
+                    Este prato está indisponível no momento.
                 </div>
             @else
                 <form action="{{ route('cart.store') }}" method="POST" class="mt-6 space-y-6">

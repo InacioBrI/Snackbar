@@ -55,7 +55,7 @@
 
     <div class="mt-4 grid gap-4 lg:grid-cols-2">
         <div class="rounded-2xl border border-stone-200 bg-white p-5">
-            <h2 class="font-bold text-stone-900">Produtos mais vendidos</h2>
+            <h2 class="font-bold text-stone-900">Pratos mais vendidos</h2>
             @if($topProducts->isEmpty())
                 <p class="mt-4 text-sm text-stone-400">Nenhuma venda registrada ainda.</p>
             @else

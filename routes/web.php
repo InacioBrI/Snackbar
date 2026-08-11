@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AddonController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DailyMenuController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\ProductController;
@@ -77,6 +78,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
             ->parameters(['categorias' => 'category']);
         Route::resource('produtos', ProductController::class)->except('show')
             ->parameters(['produtos' => 'product']);
+        Route::resource('cardapio-do-dia', DailyMenuController::class)->except('show')
+            ->parameters(['cardapio-do-dia' => 'dailyMenu']);
         Route::resource('adicionais', AddonController::class)->except('show')
             ->parameters(['adicionais' => 'addon']);
 

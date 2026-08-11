@@ -16,7 +16,7 @@
                 @if(!empty($storeSettings['logo']))
                     <img src="{{ asset('storage/'.$storeSettings['logo']) }}" alt="Logo" class="h-10 w-10 rounded-full object-cover">
                 @else
-                    <span class="grid h-10 w-10 place-items-center rounded-full bg-amber-500 text-lg font-bold text-white">🍔</span>
+                    <span class="grid h-10 w-10 place-items-center rounded-full bg-amber-500 text-lg font-bold text-white">🍽️</span>
                 @endif
                 <span class="text-lg font-bold text-stone-900">{{ $storeSettings['name'] ?? 'Lanchonete' }}</span>
             </a>
@@ -29,7 +29,7 @@
 
             <div class="flex items-center gap-3">
                 <form action="{{ route('menu.index') }}" method="GET" class="hidden md:block">
-                    <input type="search" name="q" value="{{ request('q') }}" placeholder="Buscar produto..."
+                    <input type="search" name="q" value="{{ request('q') }}" placeholder="Buscar prato..."
                            class="w-48 rounded-full border border-stone-300 bg-stone-50 px-4 py-1.5 text-sm focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500">
                 </form>
                 <a href="{{ route('cart.index') }}" class="relative grid h-10 w-10 place-items-center rounded-full bg-stone-100 hover:bg-amber-100">

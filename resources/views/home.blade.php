@@ -8,7 +8,7 @@
             <h1 class="text-3xl font-extrabold leading-tight md:text-5xl">{{ $storeSettings['name'] }}</h1>
             <p class="mt-4 text-base text-white/90 md:text-lg">{{ $storeSettings['about'] }}</p>
             <div class="mt-8 flex flex-wrap gap-3">
-                <a href="{{ route('menu.index') }}" class="rounded-full bg-white px-6 py-3 text-sm font-bold text-orange-600 shadow transition hover:bg-stone-100">Ver cardápio</a>
+                <a href="{{ route('menu.index') }}" class="rounded-full bg-white px-6 py-3 text-sm font-bold text-orange-600 shadow transition hover:bg-stone-100">Ver cardápio de hoje</a>
                 <a href="{{ route('track.index') }}" class="rounded-full border border-white/70 px-6 py-3 text-sm font-bold text-white transition hover:bg-white/10">Acompanhar pedido</a>
             </div>
             <div class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/90">
@@ -16,8 +16,25 @@
                 @if($storeSettings['address'])<span>📍 {{ $storeSettings['address'] }}</span>@endif
             </div>
         </div>
-        <div class="pointer-events-none absolute -right-10 -top-10 text-[12rem] opacity-20 md:text-[16rem]">🍔</div>
+        <div class="pointer-events-none absolute -right-10 -top-10 text-[12rem] opacity-20 md:text-[16rem]">🍽️</div>
     </section>
+
+    @if($todayMenu && $todayProducts->isNotEmpty())
+        <section class="mt-10">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+                <div>
+                    <h2 class="text-xl font-bold text-stone-900">{{ $todayMenu->title ?: 'Almoço de hoje' }}</h2>
+                    <p class="text-sm text-stone-500">{{ $todayMenu->menu_date->format('d/m/Y') }}@if($todayMenu->notes) — {{ $todayMenu->notes }}@endif</p>
+                </div>
+                <a href="{{ route('menu.index') }}" class="text-sm font-semibold text-amber-600 hover:underline">Ver cardápio →</a>
+            </div>
+            <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                @foreach($todayProducts->take(6) as $product)
+                    @include('partials.product-card', ['product' => $product])
+                @endforeach
+            </div>
+        </section>
+    @endif
 
     <section class="mt-10">
         <h2 class="text-xl font-bold text-stone-900">Categorias</h2>

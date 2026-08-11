@@ -14,7 +14,7 @@
                 <tr>
                     <th class="px-4 py-3">Ordem</th>
                     <th class="px-4 py-3">Nome</th>
-                    <th class="px-4 py-3">Produtos</th>
+                    <th class="px-4 py-3">Pratos</th>
                     <th class="px-4 py-3">Status</th>
                     <th class="px-4 py-3 text-right">Ações</th>
                 </tr>

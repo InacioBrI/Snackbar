@@ -30,7 +30,7 @@ class CartController extends Controller
         $product = Product::active()->findOrFail($validated['product_id']);
 
         if (! $product->isAvailable()) {
-            return back()->with('error', 'Este produto está indisponível no momento.');
+            return back()->with('error', 'Este prato está indisponível no momento.');
         }
 
         $this->cart->add(
@@ -40,7 +40,7 @@ class CartController extends Controller
             $validated['notes'] ?? null,
         );
 
-        return redirect()->route('cart.index')->with('success', 'Produto adicionado ao carrinho!');
+        return redirect()->route('cart.index')->with('success', 'Prato adicionado ao carrinho!');
     }
 
     public function update(Request $request, string $rowId): RedirectResponse
