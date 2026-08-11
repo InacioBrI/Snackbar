@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Category;
 use App\Models\Setting;
 use App\Services\Cart;
+use App\Services\DailyMenuService;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -16,6 +17,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->scoped(Cart::class, function ($app) {
             return new Cart($app['session.store']);
         });
+
+        $this->app->scoped(DailyMenuService::class);
     }
 
     public function boot(): void

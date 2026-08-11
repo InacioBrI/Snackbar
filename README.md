@@ -1,8 +1,11 @@
-# Lanchonete do Shopping
+# Almoço do Shopping
 
-Plataforma web de pedidos para uma lanchonete de shopping. O cliente acessa o cardápio,
-monta o pedido e paga **sem precisar criar conta**; a lanchonete gerencia tudo por um
-painel administrativo.
+Plataforma web de pedidos de **almoço** para a praça de alimentação. O cliente acessa o
+cardápio do dia, monta o pedido e paga **sem precisar criar conta**; a cozinha gerencia
+tudo por um painel administrativo.
+
+Não há lanches, combos ou porções: o foco é exclusivamente almoço, com os pratos do dia
+cadastrados e publicados pelo administrador.
 
 ## Stack
 
@@ -15,13 +18,14 @@ painel administrativo.
 
 ## Funcionalidades
 
-**Cliente (público):** home, cardápio por categorias, busca, detalhe do produto com
+**Cliente (público):** home com o almoço do dia, cardápio, busca, detalhe do prato com
 adicionais e quantidade, carrinho, checkout sem login (nome, telefone, mesa/local,
 observações), pagamento (PIX com QR Code + copia-e-cola, ou cartão), confirmação e
 acompanhamento do pedido por número do pedido ou telefone.
 
 **Admin (`/admin`):** dashboard com indicadores (faturamento, pedidos do dia, ticket médio,
-produtos mais vendidos), CRUD de produtos, categorias e adicionais, controle de estoque
+pratos mais vendidos), **cardápio do dia** (seleção diária de pratos, marcação de
+esgotado e publicação), CRUD de pratos, categorias e adicionais, controle de estoque
 opcional, gestão de pedidos por status (novo → em preparo → pronto → entregue / cancelado),
 relatórios por período, cadastro de administradores e configurações da loja.
 
@@ -34,6 +38,9 @@ php artisan key:generate
 
 # Configure o MySQL no .env (DB_DATABASE / DB_USERNAME / DB_PASSWORD)
 php artisan migrate --seed
+
+# opcional: pratos de exemplo + cardápio publicado para hoje
+php artisan db:seed --class=DemoDishesSeeder
 
 npm install
 npm run build      # ou: npm run dev

@@ -49,7 +49,7 @@ class ProductController extends Controller
         $product = Product::create($data);
         $product->addons()->sync($request->input('addons', []));
 
-        return redirect()->route('admin.produtos.index')->with('success', 'Produto criado com sucesso.');
+        return redirect()->route('admin.produtos.index')->with('success', 'Prato criado com sucesso.');
     }
 
     public function edit(Product $product): View
@@ -68,7 +68,7 @@ class ProductController extends Controller
         $product->update($data);
         $product->addons()->sync($request->input('addons', []));
 
-        return redirect()->route('admin.produtos.index')->with('success', 'Produto atualizado com sucesso.');
+        return redirect()->route('admin.produtos.index')->with('success', 'Prato atualizado com sucesso.');
     }
 
     public function destroy(Product $product): RedirectResponse
@@ -79,7 +79,7 @@ class ProductController extends Controller
 
         $product->delete();
 
-        return back()->with('success', 'Produto excluído.');
+        return back()->with('success', 'Prato excluído.');
     }
 
     /**
