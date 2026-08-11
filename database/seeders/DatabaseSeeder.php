@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         );
 
         $settings = [
-            'name' => 'Almoço do Shopping',
+            'name' => 'Cantinho da Ma',
             'about' => 'Almoço caseiro na praça de alimentação: pratos do dia preparados na hora, servidos rapidinho para você aproveitar sem enfrentar filas.',
             'phone' => '(11) 4002-8922',
             'address' => 'Praça de Alimentação, Piso L2 - Shopping Central',

@@ -1,4 +1,4 @@
-# Almoço do Shopping
+# Cantinho da Ma
 
 Plataforma web de pedidos de **almoço** para a praça de alimentação. O cliente acessa o
 cardápio do dia, monta o pedido e paga **sem precisar criar conta**; a cozinha gerencia
