@@ -52,11 +52,13 @@
 
         <div class="space-y-5">
             <div class="rounded-2xl border border-stone-200 bg-white p-6">
-                <div>
+                <div x-data="{ menuDate: '{{ old('menu_date', optional($dailyMenu->menu_date)->format('Y-m-d')) }}' }">
                     <label for="menu_date" class="text-sm font-medium text-stone-700">Data *</label>
-                    <input id="menu_date" name="menu_date" type="date" required
-                           value="{{ old('menu_date', optional($dailyMenu->menu_date)->format('Y-m-d')) }}"
+                    <input id="menu_date" name="menu_date" type="date" required x-model="menuDate"
                            class="mt-1 w-full rounded-xl border border-stone-300 px-4 py-2 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500">
+                    <p class="mt-1 text-xs text-stone-400" x-show="menuDate" x-cloak>
+                        Data selecionada: <span class="font-medium text-stone-600" x-text="menuDate.split('-').reverse().join('/')"></span>
+                    </p>
                 </div>
                 <div class="mt-3">
                     <label for="title" class="text-sm font-medium text-stone-700">Título</label>

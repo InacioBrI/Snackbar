@@ -109,7 +109,12 @@ class DailyMenuController extends Controller
             'sold_out.*' => ['integer'],
         ], [
             'products.required' => 'Selecione pelo menos um prato para o cardápio do dia.',
+            'products.min' => 'Selecione pelo menos um prato para o cardápio do dia.',
+            'menu_date.required' => 'Informe a data do cardápio.',
+            'menu_date.date' => 'Informe uma data válida.',
             'menu_date.unique' => 'Já existe um cardápio cadastrado para esta data.',
+            'title.max' => 'O título deve ter no máximo 150 caracteres.',
+            'notes.max' => 'As observações devem ter no máximo 1000 caracteres.',
         ]);
 
         $soldOut = array_map('intval', $request->input('sold_out', []));
