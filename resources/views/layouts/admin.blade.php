@@ -12,7 +12,8 @@
         $nav = [
             ['admin.dashboard', 'Dashboard', '📊', ['admin.dashboard']],
             ['admin.pedidos.index', 'Pedidos', '🧾', ['admin.pedidos.*']],
-            ['admin.produtos.index', 'Produtos', '🍔', ['admin.produtos.*']],
+            ['admin.cardapio-do-dia.index', 'Cardápio do dia', '📅', ['admin.cardapio-do-dia.*']],
+            ['admin.produtos.index', 'Pratos', '🍽️', ['admin.produtos.*']],
             ['admin.categorias.index', 'Categorias', '🗂️', ['admin.categorias.*']],
             ['admin.adicionais.index', 'Adicionais', '➕', ['admin.adicionais.*']],
             ['admin.relatorios.index', 'Relatórios', '📈', ['admin.relatorios.*']],
@@ -26,7 +27,7 @@
     <aside :class="sidebar ? 'translate-x-0' : '-translate-x-full'"
            class="fixed inset-y-0 left-0 z-40 flex w-64 flex-col border-r border-stone-200 bg-white transition-transform lg:translate-x-0">
         <div class="flex items-center gap-2 border-b border-stone-200 px-5 py-4">
-            <span class="grid h-9 w-9 place-items-center rounded-xl bg-amber-500 text-lg text-white">🍔</span>
+            <span class="grid h-9 w-9 place-items-center rounded-xl bg-amber-500 text-lg text-white">🍽️</span>
             <span class="font-bold text-stone-900">{{ $storeSettings['name'] ?? 'Admin' }}</span>
         </div>
         <nav class="flex-1 space-y-1 overflow-y-auto p-3">

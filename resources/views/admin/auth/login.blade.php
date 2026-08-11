@@ -9,7 +9,7 @@
 <body class="grid min-h-screen place-items-center bg-stone-100 font-sans text-stone-800">
     <div class="w-full max-w-sm px-4">
         <div class="mb-6 text-center">
-            <span class="inline-grid h-14 w-14 place-items-center rounded-2xl bg-amber-500 text-2xl text-white">🍔</span>
+            <span class="inline-grid h-14 w-14 place-items-center rounded-2xl bg-amber-500 text-2xl text-white">🍽️</span>
             <h1 class="mt-3 text-xl font-bold text-stone-900">Painel Administrativo</h1>
             <p class="text-sm text-stone-500">{{ $storeSettings['name'] ?? 'Lanchonete' }}</p>
         </div>

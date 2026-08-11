@@ -1,12 +1,12 @@
 @extends('layouts.admin')
 
-@section('title', 'Produtos')
-@section('heading', 'Produtos')
+@section('title', 'Pratos')
+@section('heading', 'Pratos')
 
 @section('content')
     <div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <form action="{{ route('admin.produtos.index') }}" method="GET" class="flex flex-wrap gap-2">
-            <input type="search" name="q" value="{{ request('q') }}" placeholder="Buscar produto..."
+            <input type="search" name="q" value="{{ request('q') }}" placeholder="Buscar prato..."
                    class="rounded-full border border-stone-300 px-4 py-2 text-sm focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500">
             <select name="category" class="rounded-full border border-stone-300 px-4 py-2 text-sm focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500">
                 <option value="">Todas categorias</option>
@@ -16,7 +16,7 @@
             </select>
             <button class="rounded-full border border-stone-300 px-5 py-2 text-sm font-medium text-stone-600 hover:bg-stone-50">Filtrar</button>
         </form>
-        <a href="{{ route('admin.produtos.create') }}" class="rounded-full bg-amber-500 px-5 py-2.5 text-center text-sm font-semibold text-white hover:bg-amber-600">+ Novo produto</a>
+        <a href="{{ route('admin.produtos.create') }}" class="rounded-full bg-amber-500 px-5 py-2.5 text-center text-sm font-semibold text-white hover:bg-amber-600">+ Novo prato</a>
     </div>
 
     <div class="overflow-x-auto rounded-2xl border border-stone-200 bg-white">
@@ -61,7 +61,7 @@
                         <td class="px-4 py-3">
                             <div class="flex justify-end gap-2">
                                 <a href="{{ route('admin.produtos.edit', $product) }}" class="rounded-lg border border-stone-200 px-3 py-1 text-xs font-medium text-stone-600 hover:border-amber-400 hover:text-amber-600">Editar</a>
-                                <form action="{{ route('admin.produtos.destroy', $product) }}" method="POST" onsubmit="return confirm('Excluir este produto?')">
+                                <form action="{{ route('admin.produtos.destroy', $product) }}" method="POST" onsubmit="return confirm('Excluir este prato?')">
                                     @csrf @method('DELETE')
                                     <button class="rounded-lg border border-stone-200 px-3 py-1 text-xs font-medium text-red-600 hover:border-red-300 hover:bg-red-50">Excluir</button>
                                 </form>
@@ -69,7 +69,7 @@
                         </td>
                     </tr>
                 @empty
-                    <tr><td colspan="6" class="px-4 py-10 text-center text-stone-400">Nenhum produto encontrado.</td></tr>
+                    <tr><td colspan="6" class="px-4 py-10 text-center text-stone-400">Nenhum prato encontrado.</td></tr>
                 @endforelse
             </tbody>
         </table>

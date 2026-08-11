@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
-@section('title', $product->exists ? 'Editar produto' : 'Novo produto')
-@section('heading', $product->exists ? 'Editar produto' : 'Novo produto')
+@section('title', $product->exists ? 'Editar prato' : 'Novo prato')
+@section('heading', $product->exists ? 'Editar prato' : 'Novo prato')
 
 @section('content')
     <form action="{{ $product->exists ? route('admin.produtos.update', $product) : route('admin.produtos.store') }}" method="POST" enctype="multipart/form-data"
@@ -60,7 +60,7 @@
                 <p class="text-sm font-semibold text-stone-900">Publicação</p>
                 <label class="mt-3 flex items-center gap-2 text-sm text-stone-700">
                     <input type="checkbox" name="is_active" value="1" @checked(old('is_active', $product->is_active ?? true)) class="h-4 w-4 rounded border-stone-300 text-amber-500 focus:ring-amber-500">
-                    Produto ativo
+                    Prato ativo
                 </label>
                 <label class="mt-2 flex items-center gap-2 text-sm text-stone-700">
                     <input type="checkbox" name="is_featured" value="1" @checked(old('is_featured', $product->is_featured)) class="h-4 w-4 rounded border-stone-300 text-amber-500 focus:ring-amber-500">
@@ -93,7 +93,7 @@
         </div>
 
         <div class="flex gap-3 lg:col-span-3">
-            <button class="rounded-full bg-amber-500 px-6 py-2.5 text-sm font-semibold text-white hover:bg-amber-600">Salvar produto</button>
+            <button class="rounded-full bg-amber-500 px-6 py-2.5 text-sm font-semibold text-white hover:bg-amber-600">Salvar prato</button>
             <a href="{{ route('admin.produtos.index') }}" class="rounded-full border border-stone-300 px-6 py-2.5 text-sm font-semibold text-stone-600 hover:bg-stone-50">Cancelar</a>
         </div>
     </form>
